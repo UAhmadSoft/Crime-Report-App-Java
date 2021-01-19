@@ -1,44 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
 
     <TextView
         style="?android:listSeparatorTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title"/>
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Title" />
 
     <EditText
+        android:id="@+id/crime_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/crime_title"
         android:hint="Enter a title for Crime"
-        />
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
 
 
     <TextView
         style="?android:listSeparatorTextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Details"/>
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Details" />
 
 
     <Button
+        android:id="@+id/crime_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/crime_date"
-        android:text="Wed Dec 12 11:56 GMT 2020"
+        android:paddingLeft="10dp"
 
-        />
+        android:paddingRight="10dp"
+        android:text="Wed Dec 12 11:56 GMT 2020" />
 
     <CheckBox
+        android:id="@+id/crime_solved"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/crime_solved"
-        android:text="Solved"
-        />
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Solved" />
 
 </LinearLayout>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CrimeReport 1</string>
+    <string name="date_picket_title">Date of Crime:</string>
+    <string name="new_crime">New Crime</string>
 </resources>

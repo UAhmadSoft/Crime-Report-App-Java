@@ -3,6 +3,9 @@ package com.example.crimereport1;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -111,7 +114,8 @@ public class CrimeListFragment extends Fragment {
         mCrimeRecylerView =  (RecyclerView ) view.findViewById(R.id.crime_recycler_view);
         mCrimeRecylerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     
-        
+
+        setHasOptionsMenu(true);
         updateID();
 
 
@@ -134,5 +138,31 @@ public class CrimeListFragment extends Fragment {
         }
         else
             crimeAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+
+        inflater.inflate(R.menu.fragment_crime_list ,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+
+
+       switch (item.getItemId()){
+           case  R.id.new_crime :
+
+               Crime crime = new Crime();
+               CrimeLab.get(getActivity()).addCrime(crime);
+               Intent intent  = CrimePagerActivity.newIntent(getActivity() , crime.getId());
+               startActivity(intent);
+               return true;
+           default:
+               return super.onOptionsItemSelected(item);
+
+       }
     }
 }

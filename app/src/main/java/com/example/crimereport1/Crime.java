@@ -1,5 +1,7 @@
 package com.example.crimereport1;
 
+import android.util.Log;
+
 import  java.util.*;
 
 public class Crime {
@@ -11,13 +13,17 @@ public class Crime {
 
     public Crime() {
         this(UUID.randomUUID());
+        Log.i("ID" , UUID.randomUUID().toString());
 //        date = new Date();
 
     }
 
-    public  Crime(UUID id) {
-        id = id;
+    public  Crime(UUID idd) {
+        id = idd;
         date = new Date();
+       if(title == null) {
+           title="";
+       }
     }
 
     public String getTitle() {
@@ -50,6 +56,16 @@ public class Crime {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Crime{" +
+                "title='" + title + '\'' +
+                ", date=" + date +
+                ", solved=" + solved +
+                ", id=" + id +
+                '}';
     }
 }
 

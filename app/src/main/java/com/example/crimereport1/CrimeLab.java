@@ -1,6 +1,9 @@
 package com.example.crimereport1;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import com.example.crimereport1.DB.CrimeDBHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +12,7 @@ import java.util.UUID;
 public class CrimeLab {
     private static CrimeLab sCrimeLab;
     private  static List<Crime> mCrimes;
+    private SQLiteDatabase sqLiteDatabase;
 
     public static CrimeLab get(Context context) {
         if (sCrimeLab == null) {
@@ -19,6 +23,11 @@ public class CrimeLab {
 
     private CrimeLab(Context context) {
         mCrimes = new ArrayList<>();
+
+        sqLiteDatabase = new CrimeDBHelper(context.getApplicationContext()).getWritableDatabase();
+
+
+
         for (int i = 0; i < 100; i++) {
             Crime crime = new Crime();
             crime.setTitle("Crime #" + i);

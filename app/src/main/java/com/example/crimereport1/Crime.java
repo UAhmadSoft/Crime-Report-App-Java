@@ -10,9 +10,14 @@ public class Crime {
 
 
     public Crime() {
-        id = UUID.randomUUID();
-        date = new Date();
+        this(UUID.randomUUID());
+//        date = new Date();
 
+    }
+
+    public  Crime(UUID id) {
+        id = id;
+        date = new Date();
     }
 
     public String getTitle() {
